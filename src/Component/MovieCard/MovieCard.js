@@ -1,6 +1,7 @@
 import React from "react";
 import "./MovieCard.css";
 import Rating from "@material-ui/lab/Rating";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   return (
@@ -31,6 +32,9 @@ const MovieCard = ({ movie }) => {
             </a>
           </div>
         </div>
+        <Link to={{ pathname: "/Details", state: { movie: movie } }}>
+          <button>Details</button>
+        </Link>
       </div>
     </div>
   );

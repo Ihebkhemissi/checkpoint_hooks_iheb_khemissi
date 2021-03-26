@@ -10,13 +10,7 @@ const MovieList = ({ movies, searchTitle, searchRating }) => {
   };
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          flexWrap: "wrap",
-        }}
-      >
+      <div className="moviesList">
         {movies
           .filter(
             (el) =>

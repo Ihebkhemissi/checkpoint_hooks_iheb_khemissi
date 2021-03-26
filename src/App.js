@@ -5,6 +5,8 @@ import MovieList from "./Component/MovieList/MovieList";
 import Footer from "./Component/Footer/Footer";
 import NavBar from "./Component/Nav/NavBar";
 import AddMovie from "./Component/AddMovie/AddMovie";
+import { Switch, Route } from "react-router-dom";
+import Details from "./Component/Details/Details";
 
 function App() {
   const [movies, setMovies] = useState(moviesData);
@@ -22,23 +24,28 @@ function App() {
         setSearchRating={setSearchRating}
         searchRating={searchRating}
       />
-      <div
-        style={{
-          display: "flex",
-          alignContent: "flex-start",
-          marginTop: "5%",
-          justifyContent: "space-around",
-        }}
-      >
-        {" "}
-        <AddMovie handleMovie={handleMovie} />
-        <MovieList
-          movies={movies}
-          searchTitle={searchTitle}
-          searchRating={searchRating}
-        />
-      </div>
 
+      <Switch>
+        <Route exact path="/">
+          <div
+            style={{
+              display: "flex",
+              alignContent: "flex-start",
+              marginTop: "5%",
+              justifyContent: "space-around",
+            }}
+          >
+            {" "}
+            <AddMovie handleMovie={handleMovie} />
+            <MovieList
+              movies={movies}
+              searchTitle={searchTitle}
+              searchRating={searchRating}
+            />
+          </div>
+        </Route>
+        <Route path="/Details" component={Details} />
+      </Switch>
       <Footer />
     </div>
   );
